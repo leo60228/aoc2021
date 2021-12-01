@@ -1,16 +1,8 @@
-#![feature(array_windows)]
-
-use std::io::{prelude::*, stdin};
+use aoc2021::prelude::*;
 
 fn main() {
-    let input: Vec<usize> = stdin()
-        .lock()
-        .lines()
-        .flatten()
-        .flat_map(|x| x.parse())
-        .collect();
-
-    let count = input.array_windows().filter(|[a, b]| b > a).count();
+    let input: Vec<usize> = parsed_lines();
+    let count = input.iter().tuple_windows().filter(|(a, b)| b > a).count();
 
     println!("{}", count);
 }
