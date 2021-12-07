@@ -28,6 +28,14 @@ impl Summable for &usize {
     type Target = usize;
 }
 
+impl Summable for isize {
+    type Target = isize;
+}
+
+impl Summable for &isize {
+    type Target = isize;
+}
+
 pub fn sum<I>(iter: I) -> <I::Item as Summable>::Target
 where
     I: IntoIterator,
