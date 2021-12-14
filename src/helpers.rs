@@ -10,6 +10,10 @@ pub fn parsed_lines<T: FromStr>() -> Vec<T> {
         .collect()
 }
 
+pub fn lines() -> impl Iterator<Item = String> {
+    stdin().lines().flatten()
+}
+
 pub fn split_line<T: FromStr>(ch: char) -> Vec<T> {
     let mut line = String::new();
     stdin().lock().read_line(&mut line).unwrap();
